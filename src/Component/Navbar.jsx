@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
+
 import PropTypes from 'prop-types';
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const NavBar = ({ toggleDarkMode }) => {
@@ -26,7 +27,7 @@ const NavBar = ({ toggleDarkMode }) => {
         {
             user &&
             <>
-                <NavLink to={`/myCart/${user.email}`} style={({ isActive }) => {
+                {/* <NavLink to={`/myCart/${user.email}`} style={({ isActive }) => {
                     return {
                         fontWeight: isActive ? "bold" : "",
                         color: isActive ? "fuchsia" : " red ",
@@ -37,7 +38,7 @@ const NavBar = ({ toggleDarkMode }) => {
                         fontWeight: isActive ? "bold" : "",
                         color: isActive ? "fuchsia" : " red ",
                     };
-                }}>Add Product</NavLink >
+                }}>Add Product</NavLink > */}
             </>
         }
 
