@@ -6,6 +6,9 @@ import ErrorPage from "../Page/MainPage/ErrorPage";
 import HomePage from "../Page/MainPage/HomePage";
 import LoginPage from "../Page/MainPage/LoginPage";
 import RegistrationPage from "../Page/MainPage/RegistrationPage";
+import DashBoardLayOut from "../LayOut/DashBoardLayOut";
+import TaskManagement from "../Page/DashBoardPage/TaskManagement";
+import AddTask from "../Page/DashBoardPage/AddTask";
 
 const Routes = createBrowserRouter([
     {
@@ -29,6 +32,22 @@ const Routes = createBrowserRouter([
         }
       ]
     },
+    {
+      path: "dashboard",
+      element: <DashBoardLayOut></DashBoardLayOut>,
+      errorElement:<ErrorPage></ErrorPage>,
+      children:[
+        {
+          path:'dashboard',
+          element:<TaskManagement></TaskManagement>,
+        }
+        ,
+        {
+          path:'addTask',
+          element:<AddTask></AddTask>,
+        }
+      ]
+    }
   ]);
 
 export default Routes;

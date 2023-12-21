@@ -41,18 +41,23 @@ const RegistrationPage = () => {
                     displayName: name,
                     photoURL: image
                 })
-                    .then(() => { window.reload() })
-                    .catch(error => console.error(error))
+                    .then( () => {
+                        console.log('User profile Updated')
+                        Swal.fire({
+                          position: "top-end",
+                          icon: "success",
+                          title: "User updated successfully",
+                          showConfirmButton: false,
+                          timer: 1500
+                        });
+                        logOut()
+                        .then()
+                        .catch()
+                        navigate('/login')
+                      })
+                    .catch()
 
-                logOut()
-                    .then()
-                    .catch(error => {
-                        console.error(error);
-                    })
-
-                navigate('/login');
-
-
+        
                 const userInfo = {
                     email: email,
                     password: password,

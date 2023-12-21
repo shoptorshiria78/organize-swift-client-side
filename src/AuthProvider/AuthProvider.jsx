@@ -37,8 +37,11 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
-            const userInfo = { email: currentUser.email }
+            setLoading(false);
+
             if (currentUser) {
+                const userInfo = { email: currentUser.email }
+                console.log(userInfo)
                 axiosPublic.post('/jwt', userInfo)
                     .then(res => {
                         if (res.data.token) {
@@ -54,7 +57,7 @@ const AuthProvider = ({ children }) => {
         return () => {
             unSubscribe();
         }
-    }, [])
+    }, [axiosPublic])
 
     const authInfo = { user, register, signIn, logOut, googleLogIn, loading }
     // console.log("authprovider", user?.email)

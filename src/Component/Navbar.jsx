@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import logo from "../assets/task_management_logo.jpg"
 import PropTypes from 'prop-types';
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
-const NavBar = ({ toggleDarkMode }) => {
+const NavBar = () => {
 
     const { logOut, user } = useContext(AuthContext);
 
@@ -27,7 +27,7 @@ const NavBar = ({ toggleDarkMode }) => {
         {
             user &&
             <>
-                {/* <NavLink to={`/myCart/${user.email}`} style={({ isActive }) => {
+                <NavLink to={`/myCart/${user.email}`} style={({ isActive }) => {
                     return {
                         fontWeight: isActive ? "bold" : "",
                         color: isActive ? "fuchsia" : " red ",
@@ -38,7 +38,7 @@ const NavBar = ({ toggleDarkMode }) => {
                         fontWeight: isActive ? "bold" : "",
                         color: isActive ? "fuchsia" : " red ",
                     };
-                }}>Add Product</NavLink > */}
+                }}>Add Product</NavLink >
             </>
         }
 
@@ -60,10 +60,10 @@ const NavBar = ({ toggleDarkMode }) => {
                     </ul>
                 </div>
                 <div className="flex">
-                    <img className=" w-8 h-8 md:w-16 md:h-16 bg-fuchsia-100" src="https://i.ibb.co/T40Xw2V/logo-for-skin-care.png" alt="" />
+                    <img className=" w-8 h-8 md:w-16 md:h-16 bg-fuchsia-100" src={logo} alt="logo" />
                     <div className="flex flex-col">
-                        <div className="text-base md:text-3xl font-bold text-[#E55473]">Beautify</div>
-                        <div className="text-sm md:text-xl text-red-400 "><span className="text-base font-bold text-red-500 ">Y</span>ourself</div>
+                        <div className="text-base md:text-3xl font-bold text-[#E55473]">Organize</div>
+                        <div className="text-sm md:text-xl text-red-400 "><span className="text-base font-bold text-red-500 ">S</span>wift</div>
                     </div>
                 </div>
             </div>
@@ -99,12 +99,13 @@ const NavBar = ({ toggleDarkMode }) => {
                             </ul>
                         </div>
                         
-                        : <div className="mr-1" >
+                        : 
+                        <div className="mr-1" >
                             <Link to='/login'
                                 className=" bg-[#E55473] text-white px-5 py-2 rounded text-sm md:text-base">Log In </Link>
                         </div>
                 }
-                <input onClick={toggleDarkMode} type="checkbox" className="toggle toggle-error w-10 md:w-12" />
+               
             </div>
         </div>
     );
