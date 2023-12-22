@@ -5,7 +5,7 @@ import logo from '../assets/task_management_logo.jpg'
 const DashBoardLayOut = () => {
     return (
         <div className="flex">
-        <div className="w-64 px-4 py-2 bg-fuchsia-300 pt-10">
+        <div className="w-48 lg:w-64 px-4 py-2 bg-fuchsia-300 pt-10">
             <div className="flex bg-red-50 p-2 rounded my-4">
                 <img className=" w-8 h-8 md:w-16 md:h-16 bg-fuchsia-100" src={logo} alt="" />
                 <div className="flex flex-col">
@@ -20,7 +20,7 @@ const DashBoardLayOut = () => {
                                 fontWeight: isActive ? "bold" : "",
                                 color: isActive ? "fuchsia" : " red ",
                             };
-                        }} to='/dashboard'>Task Management</NavLink></li>
+                        }} to='/dashboard/taskManagement'>Task Management</NavLink></li>
 
                         <li className="my-2 bg-red-50 py-2 rounded text-center"><NavLink style={({ isActive }) => {
                             return {

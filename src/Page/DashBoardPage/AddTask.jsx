@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const AddTask = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const axiosSecure = useAxiosSecure();
     const [startDate, setStartDate] = useState(new Date());
 
@@ -27,11 +27,13 @@ const AddTask = () => {
             deadline,
             status
         }
+        console.log(task);
 
         axiosSecure.post('/addTask', task)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success('Your task has been created');
+                    reset()
                 }
             })
     }
@@ -56,10 +58,11 @@ const AddTask = () => {
                     <span className="label-text font-medium text-cyan-500">Priority</span>
                 </label>
 
-                <select className=" border-blue-500 border-2 py-2 px-2 rounded w-[400px]" placeholder="Select Your priority here" {...register("priority", { required: true })}  name="" id="">
-                    <option value="All">Low</option>
-                    <option value="Easy">Moderate</option>
-                    <option value="Medium">High</option>
+                <select className=" border-blue-500 border-2 py-2 px-2 rounded w-[400px]" 
+                 {...register("priority")}  >
+                    <option value="Low">Low</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="High">High</option>
                 </select> 
                 {errors.priority && <span>Priority field is required</span>}
 
@@ -72,7 +75,7 @@ const AddTask = () => {
                 {/* include validation with required or other standard HTML validation rules */}
 
 
-                <input className=" border-blue-500 border-2 py-2 px-2 rounded w-[400px] bg-blue-500 mt-6 mb-10 text-white" type="submit" />
+                <input   className=" border-blue-500 border-2 py-2 px-2 rounded w-[400px] bg-blue-500 mt-6 mb-10 text-white" type="submit" />
             </form>
         </div>
     );
