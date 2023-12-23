@@ -7,7 +7,7 @@ const useToDo = () => {
     const { data: todo = [], refetch } = useQuery({
         queryKey: ['todo'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/getToDo')
+            const res = await axiosPublic.get('/getToDo/')
             return res.data;
         }
     })

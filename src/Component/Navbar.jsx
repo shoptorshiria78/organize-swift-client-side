@@ -21,7 +21,7 @@ const NavBar = () => {
         <NavLink to='/' style={({ isActive }) => {
             return {
                 fontWeight: isActive ? "bold" : "",
-                color: isActive ? "fuchsia" : " red ",
+                color: isActive ? "" : "cyan",
             };
         }}>Home</NavLink>
         {
@@ -30,13 +30,13 @@ const NavBar = () => {
                 <NavLink to={`/myCart/${user.email}`} style={({ isActive }) => {
                     return {
                         fontWeight: isActive ? "bold" : "",
-                        color: isActive ? "fuchsia" : " red ",
+                        color: isActive ? "" : "cyan",
                     };
                 }}>My Cart</NavLink >
                 <NavLink to='/addProduct' style={({ isActive }) => {
                     return {
                         fontWeight: isActive ? "bold" : "",
-                        color: isActive ? "fuchsia" : " red ",
+                        color: isActive ? "" : "cyan",
                     };
                 }}>Add Product</NavLink >
             </>
@@ -47,7 +47,7 @@ const NavBar = () => {
 
 
     return (
-        <div className="navbar mt-5 text-r rounded-xl px-12 shadow-xl bg-red-50 max-w-[450px] md:max-w-[750px] lg:max-w-[1100px] mx-auto">
+        <div className="navbar fixed z-10 bg-opacity-30 text-white mt-5 text-r rounded-xl px-12 shadow-xl bg-blue-800 max-w-[450px] md:max-w-[750px] lg:max-w-[1100px] ml-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,9 +61,9 @@ const NavBar = () => {
                 </div>
                 <div className="flex">
                     <img className=" w-8 h-8 md:w-16 md:h-16 bg-fuchsia-100" src={logo} alt="logo" />
-                    <div className="flex flex-col">
-                        <div className="text-base md:text-3xl font-bold text-[#E55473]">Organize</div>
-                        <div className="text-sm md:text-xl text-red-400 "><span className="text-base font-bold text-red-500 ">S</span>wift</div>
+                    <div className="flex flex-col ml-2">
+                        <div className="text-base md:text-3xl font-bold text-cyan-300">Organize</div>
+                        <div className="text-sm md:text-xl text-cyan-400 "><span className="text-base font-bold text-cyan-400 ">S</span>wift</div>
                     </div>
                 </div>
             </div>
