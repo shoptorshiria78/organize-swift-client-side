@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import DatePicker from "react-datepicker";
 import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import useAuth from "../../Hooks/useAuth";
 
 
 
@@ -11,21 +12,26 @@ const AddTask = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const axiosSecure = useAxiosSecure();
     const [startDate, setStartDate] = useState(new Date());
+    const {user} = useAuth();
 
     const onSubmit = (data) => {
-        console.log(data)
+        
         const title = data.title;
         const description = data.description;
         const priority = data.priority;
         const deadline = startDate ;
-        const status = "to-do"
+        const status = "to-do";
+        const email = user.email;
 
+        console.log(email)
         const task = {
             title,
             description,
             priority,
             deadline,
-            status
+            status,
+            email
+
         }
         console.log(task);
 
@@ -38,9 +44,9 @@ const AddTask = () => {
             })
     }
     return (
-        <div>
+        <div className=' w-[160px] md:w-[200px] lg:w-[400px] lg:ml-20 '>
             <h1 className="text-3xl font-bold text-center mt-20 mb-10 text-cyan-400">Add Your Task Here</h1>
-            <form className="flex flex-col w-[400px] mx-auto " onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col w-[150px] md:w-[200px] lg:w-[400px] mx-auto " onSubmit={handleSubmit(onSubmit)}>
                 {/* register your input into the hook by invoking the "register" function */}
                 <label className="label">
                     <span className="label-text font-medium text-cyan-500">Title</span>

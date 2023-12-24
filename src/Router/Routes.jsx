@@ -9,6 +9,7 @@ import RegistrationPage from "../Page/MainPage/RegistrationPage";
 import DashBoardLayOut from "../LayOut/DashBoardLayOut";
 import TaskManagement from "../Page/DashBoardPage/TaskManagement";
 import AddTask from "../Page/DashBoardPage/AddTask";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const Routes = createBrowserRouter([
     {
@@ -39,12 +40,12 @@ const Routes = createBrowserRouter([
       children:[
         {
           path:'taskManagement',
-          element:<TaskManagement></TaskManagement>,
+          element:<PrivateRoute><TaskManagement></TaskManagement></PrivateRoute>,
         }
         ,
         {
           path:'addTask',
-          element:<AddTask></AddTask>,
+          element:<PrivateRoute><AddTask></AddTask></PrivateRoute>,
         }
       ]
     }

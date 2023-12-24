@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../AxiosInterfaces/useAxiosSecure";
 
 
-const TodoItem = ({ singleItem, refetch }) => {
+const CompletedItem = ({ singleItem, refetch }) => {
     const axiosSecure = useAxiosSecure();
 
     const handleDelete = async (id) => {
@@ -34,27 +34,6 @@ const TodoItem = ({ singleItem, refetch }) => {
         }
     }
 
-    
-    const handleOnGoing = (id)=>{
-        const status = "OnGoing";
-        const updatedTask = {
-            status,   
-        }
-        axiosSecure.patch(`/sendToOnGoing/${id}`, updatedTask)
-        .then(res=>{
-            if(res.data.modifiedCount > 0){
-                toast.success('Your task has been added to On Going');
-                refetch()
-            }
-        })
-        // axiosSecure.delete(`/deleteTask/${id}`)
-        //                 .then(res => {
-        //                     if (res.data.deletedCount > 0) {
-        //                         
-        //                     }
-        //                 })
-
-    }
 
     return (
         < div className=" w-[200px] md:w-[300px] lg:w-[300px] border-2 border-cyan-600 mt-2 p-2" >
@@ -66,10 +45,10 @@ const TodoItem = ({ singleItem, refetch }) => {
             <div className="flex justify-between my-2">
                 <button onClick={() => handleDelete(singleItem._id)} className="bg-emerald-700 text-white rounded px-3 py-1">DELETE</button>
 
-                <button  className="bg-teal-500 text-white rounded px-3 py-1"> UPDATE</button>
+                <button className="bg-teal-500 text-white rounded px-3 py-1"> UPDATE</button>
 
             </div>
-            <button onClick={()=>handleOnGoing(singleItem._id)} className="bg-emerald-500 text-white rounded px-3 py-1 w-full">Go to OnGoing</button>
+           
 
         </div>
 
@@ -77,4 +56,4 @@ const TodoItem = ({ singleItem, refetch }) => {
 
 }
 
-export default TodoItem;
+export default CompletedItem;

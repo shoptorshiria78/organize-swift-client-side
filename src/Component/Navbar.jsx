@@ -27,18 +27,18 @@ const NavBar = () => {
         {
             user &&
             <>
-                <NavLink to={`/myCart/${user.email}`} style={({ isActive }) => {
+                <NavLink to={`/dashboard/taskManagement`} style={({ isActive }) => {
                     return {
                         fontWeight: isActive ? "bold" : "",
                         color: isActive ? "" : "cyan",
                     };
-                }}>My Cart</NavLink >
-                <NavLink to='/addProduct' style={({ isActive }) => {
+                }}>My Task</NavLink >
+                <NavLink to='/dashboard/addTask' style={({ isActive }) => {
                     return {
                         fontWeight: isActive ? "bold" : "",
                         color: isActive ? "" : "cyan",
                     };
-                }}>Add Product</NavLink >
+                }}>Add Task</NavLink >
             </>
         }
 
