@@ -10,6 +10,7 @@ import DashBoardLayOut from "../LayOut/DashBoardLayOut";
 import TaskManagement from "../Page/DashBoardPage/TaskManagement";
 import AddTask from "../Page/DashBoardPage/AddTask";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateTask from "../Page/DashBoardPage/UpdateTask";
 
 const Routes = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ const Routes = createBrowserRouter([
         {
           path:'addTask',
           element:<PrivateRoute><AddTask></AddTask></PrivateRoute>,
+        },
+        {
+          path:'updateTask/:id',
+          // loader:(params)=>,
+          element:<PrivateRoute><UpdateTask></UpdateTask></PrivateRoute>,
         }
       ]
     }
